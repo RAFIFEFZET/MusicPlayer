@@ -1,0 +1,103 @@
+[
+  {
+    "id": 1,
+    "title": "Color Your Night",
+    "singer": "Azumi Takahashi",
+    "audio": "/song-audio/Color Your Night -Full-.mp3",
+    "cover": "/cover/coloryournight.jpeg",
+    "lyrics": [
+      { "time": 0, "text": "" },
+      { "time": 1, "text": "~BGM~" },
+      { "time": 21, "text": "Time to shine and I'm down to ride" },
+      {
+        "time": 23.5,
+        "text": "I'm gonna drive until the break of dawn, wilding out"
+      },
+      {
+        "time": 26,
+        "text": "I'm on a mission grinding out, whatever it is I gotta do"
+      },
+      {
+        "time": 28.7,
+        "text": "Riding out until the day I meet you, I'm riding out"
+      },
+      { "time": 31, "text": "I look up in the sky (sky)" },
+      { "time": 32.8, "text": "Asking lotta, why? (Why?)" },
+      {
+        "time": 33.8,
+        "text": "But never let it phase me, I'm keeping good vibes"
+      },
+      {
+        "time": 36,
+        "text": "When I'm on the road, watch out for all surprises"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Peach Eyes",
+    "singer": "Wave to Earth",
+    "audio": "/song-audio/peach eyes.mp3",
+    "cover": "/cover/peacheyes.jpeg",
+    "lyrics": [
+      { "time": 1, "text": "" },
+      {
+        "time": 10,
+        "text": "Peach eyes and blue skies, I'll be with you on your ride"
+      },
+      { "time": 16, "text": "It's on the moonlight, How many songs I write" },
+      {
+        "time": 21,
+        "text": "You'll be my sunlight, how could I not rely On you"
+      },
+      { "time": 28, "text": "Peach eyes, you're mine" },
+      { "time": 33, "text": "As soon as I watch your eyes" },
+      { "time": 36, "text": "Couldn't find you on my damn mind" },
+      { "time": 41, "text": "Oh my, I'm heading into you" },
+      { "time": 45, "text": "Would you don't mind, would you don't mind" },
+      { "time": 51, "text": "I'm talking to you, I'm talking to you" },
+      { "time": 61, "text": "My life's so jerky, yeah" },
+      { "time": 64, "text": "So would you let me" },
+      { "time": 66, "text": "To hide inside your eyes, your peach eyes" },
+      {
+        "time": 71,
+        "text": "Pictures in bluer skies, I'll be with you on your ride"
+      },
+      { "time": 76, "text": "It's on the moonlight, how many songs I write" },
+      {
+        "time": 81,
+        "text": "You'll be my sunlight, how could I not fall in love with you"
+      },
+      { "time": 89, "text": "Each eyes" },
+      { "time": 92, "text": "The coldest days I've been without you" },
+      { "time": 99, "text": "You're the one I need" },
+      { "time": 103, "text": "You know besides, I won't find nobody" },
+      { "time": 109, "text": "To keep my whole life with you, oh you" },
+      {
+        "time": 121,
+        "text": "Pictures in bluer skies, oh it's on the moonlight"
+      },
+      { "time": 132, "text": "You'll be my sunlight" },
+      { "time": 138, "text": "Peach eyes" },
+      {
+        "time": 142,
+        "text": "Pictures in bluer skies, I'll be with you on your ride"
+      },
+      { "time": 147, "text": "It's on the moonlight, how many songs I write" },
+      {
+        "time": 152,
+        "text": "You'll be my sunlight, how could I not fall in love with you"
+      },
+      { "time": 160, "text": "Peach eyes" },
+      {
+        "time": 163,
+        "text": "Pictures in bluer skies, oh it's on the moonlight"
+      },
+      {
+        "time": 172,
+        "text": "You'll be my sunlight, how could I not fall in love with you"
+      },
+      { "time": 180, "text": "Peach eyes" }
+    ]
+  }
+]

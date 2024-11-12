@@ -1,0 +1,135 @@
+/* components/MusicPlayer.module.css */
+
+.player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.vinyl {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  animation: rotate 5s linear infinite;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.vinyl::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: black;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.coverImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.songInfo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.songInfo h2 {
+  margin: 5px 0;
+  font-size: 24px;
+}
+
+.songInfo h3 {
+  margin: 5px 0;
+  font-size: 18px;
+  color: gray;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.controls button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.controls button:hover {
+  color: #0070f3;
+}
+
+.progress {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  margin-top: 10px;
+}
+
+.progress .time {
+  width: 40px;
+  text-align: center;
+}
+
+.progress input[type="range"] {
+  flex: 1;
+  margin: 0 10px;
+}
+
+/* components/MusicPlayer.module.css */
+
+.lyrics {
+  margin: 20px 0;
+  text-align: center;
+  height: 60px; /* Sesuaikan sesuai kebutuhan */
+  font-family: Poppins, sans-serif;
+}
+
+.prevLyric,
+.nextLyric {
+  color: gray;
+  font-size: 14px;
+}
+
+.currentLyric {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Tambahkan kelas spin */
+.spin {
+  animation: spin 5s linear infinite;
+}
+
+/* MusicPlayer.module.css */
+
+.fadeIn {
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
