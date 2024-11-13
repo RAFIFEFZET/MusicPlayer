@@ -99,5 +99,54 @@
       },
       { "time": 180, "text": "Peach eyes" }
     ]
+  },
+  {
+    "id": 3,
+    "title": "Sunny Days",
+    "singer": "Wave to Earth",
+    "audio": "/song-audio/sunny days.mp3",
+    "cover": "/cover/peacheyes.jpeg",
+    "lyrics": [
+      {
+        "time": 25.17,
+        "text": "Yeah, I've been waitin' for this day, and, yeah"
+      },
+      {
+        "time": 35.09,
+        "text": "The way I'm walkin' hand in hand with you, yeah"
+      },
+      {
+        "time": 41.0,
+        "text": "Just like all the sunlight is watch over me, baby"
+      },
+      { "time": 49.51, "text": "Yes, my heart it's full of your smile, yeah" },
+      { "time": 59.82, "text": "I'll give it to you" },
+      {
+        "time": 62.52,
+        "text": "When I collect even the love in the air, yeah"
+      },
+      { "time": 71.8, "text": "The beautiful scenery of the streets" },
+      { "time": 78.09, "text": "The chirpin' of birds is nothin' without you" },
+      { "time": 84.16, "text": "I'm nothin' without you, ooh" },
+      { "time": 89.76, "text": "Yeah, I'm nothin' without you, oh" },
+      { "time": 97.64, "text": "We melt this love and recreate it" },
+      { "time": 102.51, "text": "As we imagine it" },
+      { "time": 105.47, "text": "That's how we make sunny days, yeah" },
+      { "time": 114.11, "text": "'Cause you're always mysterious to me" },
+      { "time": 124.4, "text": "" },
+      { "time": 127.02, "text": "You are my golden age" },
+      { "time": 133.04, "text": "Everything shines so bright" },
+      { "time": 136.34, "text": "That my eyes go blind" },
+      { "time": 139.81, "text": "Our youth never ages here" },
+      { "time": 146.9, "text": "" },
+      { "time": 173.85, "text": "We melt this love and recreate it" },
+      { "time": 178.68, "text": "As we imagine it" },
+      { "time": 181.33, "text": "That's how we make sunny days, yeah" },
+      { "time": 189.96, "text": "'Cause you're always mysterious to me" },
+      { "time": 198.05, "text": "We melt this love and recreate it" },
+      { "time": 202.89, "text": "As we imagine it" },
+      { "time": 205.72, "text": "That's how we make sunny days, yeah" },
+      { "time": 214.46, "text": "'Cause you're always mysterious to me" }
+    ]
   }
 ]
