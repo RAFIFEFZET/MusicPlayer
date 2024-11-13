@@ -107,6 +107,7 @@
     "audio": "/song-audio/sunny days.mp3",
     "cover": "/cover/peacheyes.jpeg",
     "lyrics": [
+      { "time": 1, "text": "" },
       {
         "time": 25.17,
         "text": "Yeah, I've been waitin' for this day, and, yeah"
@@ -146,7 +147,8 @@
       { "time": 198.05, "text": "We melt this love and recreate it" },
       { "time": 202.89, "text": "As we imagine it" },
       { "time": 205.72, "text": "That's how we make sunny days, yeah" },
-      { "time": 214.46, "text": "'Cause you're always mysterious to me" }
+      { "time": 214.46, "text": "'Cause you're always mysterious to me" },
+      { "time": 221.29, "text": "" }
     ]
   }
 ]
