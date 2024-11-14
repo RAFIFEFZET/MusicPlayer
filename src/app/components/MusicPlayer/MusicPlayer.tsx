@@ -1,10 +1,12 @@
-// components/MusicPlayer.tsx
+// components/MusicPlayer/MusicPlayer.tsx
 "use client";
-import { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styles from "./MusicPlayer.module.css";
-import Image from "next/image";
+import Vinyl from "./Vinyl";
+import Controls from "./Controls";
+import LyricsDisplay from "./LyricsDisplay";
+import ProgressBar from "./ProgressBar";
 import MusicBarPreloader from "./MusicBarPreloader";
-import { FaPlay, FaPause, FaForward, FaBackward } from "react-icons/fa";
 
 interface Lyric {
   time: number;
@@ -20,7 +22,7 @@ interface Song {
   lyrics: Lyric[];
 }
 
-const MusicPlayer = () => {
+const MusicPlayer: React.FC = () => {
   const [songs, setSongs] = useState<Song[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
@@ -102,10 +104,9 @@ const MusicPlayer = () => {
     }
   };
 
-  const handleSeek = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSeek = (value: number) => {
     if (!audioRef.current) return;
-    const seekTime =
-      (Number(event.target.value) / 100) * audioRef.current.duration;
+    const seekTime = (value / 100) * audioRef.current.duration;
     audioRef.current.currentTime = seekTime;
   };
 
@@ -138,34 +139,24 @@ const MusicPlayer = () => {
 
   return (
     <div className={`${styles.player} ${isLoaded ? styles.fadeIn : ""}`}>
-      <div className={`${styles.vinyl} ${isPlaying ? styles.spin : ""}`}>
-        <Image
-          src={song.cover}
-          alt={`Cover of ${song.title}`}
-          width={200}
-          height={200}
-          className={styles.coverImage}
-        />
-      </div>
+      <Vinyl cover={song.cover} isPlaying={isPlaying} />
       <div className={styles.songInfo}>
         <h2>{song.title}</h2>
         <h3>{song.singer}</h3>
       </div>
-      <div className={styles.lyrics}>
-        {currentLyricIndex > 0 && (
-          <p className={styles.prevLyric}>
-            {song.lyrics[currentLyricIndex - 1]?.text}
-          </p>
-        )}
-        <p className={styles.currentLyric}>
-          {song.lyrics[currentLyricIndex]?.text}
-        </p>
-        {currentLyricIndex < song.lyrics.length - 1 && (
-          <p className={styles.nextLyric}>
-            {song.lyrics[currentLyricIndex + 1]?.text}
-          </p>
-        )}
-      </div>
+      <LyricsDisplay
+        currentLyric={song.lyrics[currentLyricIndex]?.text || ""}
+        prevLyric={
+          currentLyricIndex > 0
+            ? song.lyrics[currentLyricIndex - 1]?.text
+            : undefined
+        }
+        nextLyric={
+          currentLyricIndex < song.lyrics.length - 1
+            ? song.lyrics[currentLyricIndex + 1]?.text
+            : undefined
+        }
+      />
       <audio
         ref={audioRef}
         src={song.audio}
@@ -173,28 +164,18 @@ const MusicPlayer = () => {
         onLoadedMetadata={handleTimeUpdate}
         onEnded={handleNext}
       />
-      <div className={styles.controls}>
-        <button onClick={handlePrevious}>
-          <FaBackward />
-        </button>
-        <button onClick={togglePlayPause}>
-          {isPlaying ? <FaPause /> : <FaPlay />}
-        </button>
-        <button onClick={handleNext}>
-          <FaForward />
-        </button>
-      </div>
-      <div className={styles.progress}>
-        <span className={styles.time}>{currentTime}</span>
-        <input
-          type="range"
-          min="0"
-          max="100"
-          value={progress}
-          onChange={handleSeek}
-        />
-        <span className={styles.time}>{duration}</span>
-      </div>
+      <Controls
+        isPlaying={isPlaying}
+        onPlayPause={togglePlayPause}
+        onNext={handleNext}
+        onPrevious={handlePrevious}
+      />
+      <ProgressBar
+        progress={progress}
+        currentTime={currentTime}
+        duration={duration}
+        onSeek={handleSeek}
+      />
     </div>
   );
 };
