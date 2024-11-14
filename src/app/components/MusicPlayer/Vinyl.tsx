@@ -16,6 +16,9 @@ const Vinyl: React.FC<VinylProps> = ({ cover, isPlaying }) => (
       width={200}
       height={200}
       className={styles.coverImage}
+      priority
+      placeholder="blur"
+      blurDataURL="/vinyl.png" // Gambar placeholder
     />
   </div>
 );
