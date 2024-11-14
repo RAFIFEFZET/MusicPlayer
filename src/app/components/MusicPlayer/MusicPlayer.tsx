@@ -60,20 +60,30 @@ const MusicPlayer: React.FC = () => {
     setCurrentTime("0:00");
     setDuration("0:00");
     if (audioRef.current) {
-      audioRef.current.pause();
       audioRef.current.load();
-      setIsPlaying(false);
+      if (isPlaying) {
+        audioRef.current.play().catch((error) => {
+          console.error("Gagal memutar lagu:", error);
+        });
+      }
     }
-  }, [currentSongIndex]);
+  }, [currentSongIndex, isPlaying]);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.play().catch((error) => {
+          console.error("Gagal memutar lagu:", error);
+        });
+      } else {
+        audioRef.current.pause();
+      }
+    }
+  }, [isPlaying]);
 
   const togglePlayPause = () => {
     if (!audioRef.current) return;
-    if (isPlaying) {
-      audioRef.current.pause();
-    } else {
-      audioRef.current.play();
-    }
-    setIsPlaying(!isPlaying);
+    setIsPlaying((prev) => !prev);
   };
 
   const toggleShuffle = () => {
