@@ -19,7 +19,6 @@ const Vinyl: React.FC<VinylProps> = ({ cover, isPlaying }) => (
       priority
       placeholder="blur"
       blurDataURL="/vinyl.png" // Gambar placeholder
-      loading={"lazy"}
     />
   </div>
 );
