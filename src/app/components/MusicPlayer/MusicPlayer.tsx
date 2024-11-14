@@ -28,9 +28,11 @@ const MusicPlayer: React.FC = () => {
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [currentLyricIndex, setCurrentLyricIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isShuffling, setIsShuffling] = useState(false);
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState("0:00");
   const [currentTime, setCurrentTime] = useState("0:00");
+  const [history, setHistory] = useState<number[]>([]); // Riwayat lagu
 
   const audioRef = useRef<HTMLAudioElement>(null);
 
@@ -43,7 +45,7 @@ const MusicPlayer: React.FC = () => {
         const data: Song[] = await response.json();
         setSongs(data);
 
-        // Simulate a loading delay for the preloader
+        // Simulasi delay loading untuk preloader
         setTimeout(() => setIsLoaded(true), 1500);
       } catch (error) {
         console.error(error);
@@ -72,6 +74,12 @@ const MusicPlayer: React.FC = () => {
       audioRef.current.play();
     }
     setIsPlaying(!isPlaying);
+  };
+
+  const toggleShuffle = () => {
+    setIsShuffling((prev) => !prev);
+    // Reset riwayat saat mengubah mode shuffle
+    setHistory([]);
   };
 
   const handleTimeUpdate = () => {
@@ -111,15 +119,38 @@ const MusicPlayer: React.FC = () => {
   };
 
   const handleNext = () => {
-    setCurrentSongIndex((prevIndex) =>
-      prevIndex === songs.length - 1 ? 0 : prevIndex + 1
-    );
+    if (isShuffling) {
+      // Tambahkan indeks lagu saat ini ke riwayat
+      setHistory((prevHistory) => [...prevHistory, currentSongIndex]);
+
+      // Pilih indeks lagu secara acak yang berbeda dari lagu saat ini
+      let randomIndex = Math.floor(Math.random() * songs.length);
+      if (songs.length > 1) {
+        while (randomIndex === currentSongIndex) {
+          randomIndex = Math.floor(Math.random() * songs.length);
+        }
+      }
+      setCurrentSongIndex(randomIndex);
+    } else {
+      setCurrentSongIndex((prevIndex) =>
+        prevIndex === songs.length - 1 ? 0 : prevIndex + 1
+      );
+    }
   };
 
   const handlePrevious = () => {
-    setCurrentSongIndex((prevIndex) =>
-      prevIndex === 0 ? songs.length - 1 : prevIndex - 1
-    );
+    if (isShuffling && history.length > 0) {
+      // Ambil indeks lagu terakhir dari riwayat
+      const previousIndex = history[history.length - 1];
+      // Hapus indeks lagu terakhir dari riwayat
+      setHistory((prevHistory) => prevHistory.slice(0, -1));
+      // Set lagu sebelumnya
+      setCurrentSongIndex(previousIndex);
+    } else {
+      setCurrentSongIndex((prevIndex) =>
+        prevIndex === 0 ? songs.length - 1 : prevIndex - 1
+      );
+    }
   };
 
   const formatTime = (time: number) => {
@@ -169,6 +200,8 @@ const MusicPlayer: React.FC = () => {
         onPlayPause={togglePlayPause}
         onNext={handleNext}
         onPrevious={handlePrevious}
+        isShuffling={isShuffling}
+        onShuffle={toggleShuffle}
       />
       <ProgressBar
         progress={progress}

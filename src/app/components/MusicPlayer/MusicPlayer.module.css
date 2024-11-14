@@ -62,12 +62,18 @@
 .controls button {
   background: none;
   border: none;
-  font-size: 24px;
   cursor: pointer;
+  margin: 0 10px;
+  font-size: 24px;
+  transition: color 0.3s;
 }
 
 .controls button:hover {
-  color: #0070f3;
+  color: #4fa94d;
+}
+
+.controls button.active {
+  color: #4fa94d;
 }
 
 .progress {
@@ -85,6 +91,7 @@
 .progress input[type="range"] {
   flex: 1;
   margin: 0 10px;
+  color: #4fa94d;
 }
 
 /* components/MusicPlayer.module.css */
