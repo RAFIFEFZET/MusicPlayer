@@ -54,6 +54,7 @@ const MusicPlayer: React.FC = () => {
     fetchSongs();
   }, []);
 
+  // Effect untuk perubahan currentSongIndex
   useEffect(() => {
     setCurrentLyricIndex(0);
     setProgress(0);
@@ -67,8 +68,9 @@ const MusicPlayer: React.FC = () => {
         });
       }
     }
-  }, [currentSongIndex, isPlaying]);
+  }, [currentSongIndex]); // Hanya depend on currentSongIndex
 
+  // Effect untuk perubahan isPlaying
   useEffect(() => {
     if (audioRef.current) {
       if (isPlaying) {
